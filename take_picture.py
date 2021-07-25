@@ -4,6 +4,15 @@ import numpy as np
 import cv2
 
 
+def capture_photo(wait_time):
+    with Lepton() as l:
+        frame, _ = l.capture()
+    cv2.normalize(frame, frame, 0, 65535, cv2.NORM_MINMAX)
+    np.right_shift(frame, 8, frame)
+    sleep(wait_time)
+    return frame
+
+
 def main():
     scale_percent = 800
     with Lepton() as l:
@@ -16,6 +25,7 @@ def main():
             dim = (width, height)
             resized = cv2.resize(np.uint8(frame), dim, interpolation = cv2.INTER_AREA)
             cv2.imshow("Frames", resized)
+            sleep(0.05)
             key = cv2.waitKey(1) & 0xFF
 
             if key == ord("q"):

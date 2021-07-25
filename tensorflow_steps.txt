@@ -1,0 +1,5 @@
+1.- download the .whl for tensorflow 2.4.0 for the processor arquitecture
+wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v2.4.0/tensorflow-2.4.0-cp37-none-linux_armv7l.whl
+
+2.- Install the package in our venv
+pip install tensorflow-2.4.0-cp37-none-linux_armv7l.whl
